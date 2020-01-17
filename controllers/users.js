@@ -5,6 +5,7 @@ module.exports = {
 }
 
 async function signup(req, res) {
+    console.log('HERE? 2');
     const user = new User(req.body);
     try {
         await user.save();
