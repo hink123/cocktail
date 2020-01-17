@@ -26,9 +26,9 @@ class App extends Component {
           <LoginPage />
         )}/>
 
-        <Route exact path="/signup" render={() => (
-          <SignupPage />
-        )}/>
+        <Route exact path="/signup" render={({history}) => 
+          <SignupPage history={history} />
+        }/>
 
       </div>
     );
