@@ -18,6 +18,10 @@ class App extends Component {
           <NavBar />
         </div>
 
+        <Route exact path="/" render={() => (
+          <h3>Home Page</h3>
+        )}/>
+
         <Route exact path="/login" render={() => (
           <LoginPage />
         )}/>
