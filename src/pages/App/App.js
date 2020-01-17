@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {Route} from 'react-router-dom';
+import SignupPage from '../SignupPage/SignupPage';
+import LoginPage from '../LoginPage/LoginPage';
+import NavBar from '../../components/NavBar/NavBar';
 import './App.css';
 
 class App extends Component {
@@ -9,6 +13,19 @@ class App extends Component {
         <header className="App-header">
         Welcome to Cocktail
         </header>
+
+        <div>
+          <NavBar />
+        </div>
+
+        <Route exact path="/login" render={() => (
+          <LoginPage />
+        )}/>
+
+        <Route exact path="/signup" render={() => (
+          <SignupPage />
+        )}/>
+
       </div>
     );
   }
