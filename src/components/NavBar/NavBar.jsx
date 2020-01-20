@@ -3,15 +3,25 @@ import {Link} from 'react-router-dom';
 
 
 const NavBar = (props) => {
-    return (
-        <div className='NavBar'>
+    let nav = props.user ? 
+        <div>
+            <Link to=''>Log Out</Link>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Welcome, {props.user.name}</span>
+        </div>
+        :
+        <div>
             <Link to='/'>Home</Link>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <Link to='/login'>Login</Link>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <Link to='/signup'>Signup</Link>
         </div>
-    )
+    return (
+        <div className='NavBar'>
+            {nav}
+        </div>
+    );
 }
 
 export default NavBar;

@@ -22,7 +22,7 @@ class App extends Component {
         </header>
 
         <div>
-          <NavBar />
+          <NavBar user={this.state.user} />
         </div>
 
         <Route exact path="/" render={() => (
