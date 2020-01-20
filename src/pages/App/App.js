@@ -13,6 +13,15 @@ class App extends Component {
       user: userService.getUser()
     }
   }
+
+  handleLogout = () => {
+    userService.logout();
+    this.setState({user: null});
+  }
+
+  handleSignup = () => {
+    this.setState({user: userService.getUser()});
+  }
   
   render() {
     return (
@@ -22,7 +31,7 @@ class App extends Component {
         </header>
 
         <div>
-          <NavBar user={this.state.user} />
+          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         </div>
 
         <Route exact path="/" render={() => (
@@ -34,7 +43,7 @@ class App extends Component {
         )}/>
 
         <Route exact path="/signup" render={({history}) => 
-          <SignupPage history={history} />
+          <SignupPage history={history} handleSignup={this.handleSignup} />
         }/>
 
       </div>
