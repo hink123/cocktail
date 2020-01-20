@@ -3,9 +3,16 @@ import {Route} from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
+import userService from '../../utils/userService';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      user: userService.getUser()
+    }
+  }
   
   render() {
     return (
