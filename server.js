@@ -16,7 +16,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 
 // Put API routes here
 app.use('/api/users', require('./routes/api/users'));
-
+// Auth Middleware, could place in router
+app.use(require('./config/auth'));
 
 app.get('/*', function(req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
