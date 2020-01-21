@@ -5,6 +5,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
 import SearchCocktailPage from '../SearchCocktailPage/SearchCocktailPage';
+import CocktailDetailPage from '../CocktailDetailPage/CocktailDetailPage';
 import {getCocktail} from '../../services/cocktail-api';
 import './App.css';
 
@@ -45,7 +46,10 @@ class App extends Component {
         </div>
         <Switch>
           <Route exact path="/" render={() => (
+              !this.state.cocktail ?
               <SearchCocktailPage handleCocktailSearch={this.handleCocktailSearch}/>
+              :
+              <CocktailDetailPage user={this.state.user} cocktail={this.state.cocktail} />
           )}/>
 
           <Route exact path="/login" render={({history}) => (
