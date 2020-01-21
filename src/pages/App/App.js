@@ -4,6 +4,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
+import SearchCocktailPage from '../SearchCocktailPage/SearchCocktailPage';
 import './App.css';
 
 class App extends Component {
@@ -35,7 +36,7 @@ class App extends Component {
         </div>
 
         <Route exact path="/" render={() => (
-          <h3>Home Page</h3>
+          <SearchCocktailPage />
         )}/>
 
         <Route exact path="/login" render={({history}) => (
