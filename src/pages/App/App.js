@@ -7,6 +7,7 @@ import userService from '../../utils/userService';
 import cocktailService from '../../utils/cocktailService';
 import SearchCocktailPage from '../SearchCocktailPage/SearchCocktailPage';
 import CocktailDetailPage from '../CocktailDetailPage/CocktailDetailPage';
+import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import {getCocktail} from '../../services/cocktail-api';
 import './App.css';
 
@@ -83,6 +84,10 @@ class App extends Component {
           <Route exact path="/signup" render={({history}) => 
             <SignupPage history={history} handleSignup={this.handleSignupOrLogin} />
           }/>
+          
+          <Route exact path="/favorites" render={() => (
+            <FavoritesPage />
+          )}/>
         </Switch>
 
       </div>
