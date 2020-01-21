@@ -25,6 +25,7 @@ class SearchCocktailPage extends Component {
 
                     </input>
                     <button>Submit</button>
+                    <h3>{this.props.msg}</h3>
                 </form>
             </div>
         );

@@ -6,13 +6,11 @@ class CocktailDetailPage extends Component {
         let ingredients = [];
         for(let i = 1; i <= 15; i++) {
             let ingrEnding = 'strIngredient' + i.toString();
-            console.log('ENDIING: ', ingrEnding);
             let measEnding = 'strMeasure' + i.toString();
             if(this.props.cocktail[ingrEnding]) {
                 let output = <li key={i} >{this.props.cocktail[ingrEnding]}: {this.props.cocktail[measEnding]}</li>
                 ingredients.push(output);
             }
-            console.log('INGREDIENTS', ingredients);
         }
 
         return (
@@ -25,6 +23,7 @@ class CocktailDetailPage extends Component {
                     Ingredients: {ingredients}
                 </h3>
                 <h3>Instructions: {this.props.cocktail.strInstructions}</h3>
+                <button onClick={this.props.handleNewSearch} >New Search</button>
             </div>
         )
     }

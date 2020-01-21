@@ -14,7 +14,8 @@ class App extends Component {
     super();
     this.state = {
       user: userService.getUser(),
-      cocktail: null
+      cocktail: null,
+      msg: ''
     }
   }
 
@@ -29,9 +30,16 @@ class App extends Component {
 
   handleCocktailSearch = async (cocktail) => {
     let searchResult = await getCocktail(cocktail);
-    searchResult = searchResult.drinks[0];
+    if(!searchResult.drinks) {
+      return this.setState({msg: 'Invalid Cocktail'})
+    }
     console.log('SEARCH RESULT: ', searchResult);
+    searchResult = searchResult.drinks[0];
     this.setState({cocktail: searchResult});
+  }
+
+  handleNewSearch = () => {
+    this.setState({cocktail: null, msg: ''});
   }
   
   render() {
@@ -47,9 +55,13 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => (
               !this.state.cocktail ?
-              <SearchCocktailPage handleCocktailSearch={this.handleCocktailSearch}/>
+              <SearchCocktailPage msg={this.state.msg} handleCocktailSearch={this.handleCocktailSearch}/>
               :
-              <CocktailDetailPage user={this.state.user} cocktail={this.state.cocktail} />
+              <CocktailDetailPage 
+                user={this.state.user} 
+                cocktail={this.state.cocktail} 
+                handleNewSearch={this.handleNewSearch}
+              />
           )}/>
 
           <Route exact path="/login" render={({history}) => (
