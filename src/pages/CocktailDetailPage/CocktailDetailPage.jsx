@@ -24,6 +24,7 @@ class CocktailDetailPage extends Component {
                 </h3>
                 <h3>Instructions: {this.props.cocktail.strInstructions}</h3>
                 <button onClick={this.props.handleNewSearch} >New Search</button>
+                <img src={this.props.cocktail.strDrinkThumb} alt="Drink"></img>
             </div>
         )
     }
