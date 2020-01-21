@@ -4,6 +4,16 @@ var Schema = mongoose.Schema;
 
 const SALT_ROUNDS = 6;
 
+var drinkSchema = new Schema({
+    cocktail: String,
+    glass: String,
+    instructions: String,
+    ingredients: Array,
+    image: String
+}, {
+    timestamps: true
+})
+
 const userSchema = new Schema({
     name: String,
     email: {
@@ -12,10 +22,12 @@ const userSchema = new Schema({
         lowercase: true,
         unique: true
     }, 
-    password: String
+    password: String,
+    favDrinks: [drinkSchema]
 }, {
     timestamps: true
 });
+
 
 userSchema.set('toJSON', {
     transform: function(doc, ret) {

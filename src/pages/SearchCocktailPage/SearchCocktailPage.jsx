@@ -16,6 +16,7 @@ class SearchCocktailPage extends Component {
         this.props.handleCocktailSearch(this.state.cocktail);
     }
 
+    //TODO fix the authentication to search
     render() {
         return (
             <div>
@@ -24,7 +25,7 @@ class SearchCocktailPage extends Component {
                     <input value={this.state.cocktail} name="cocktail" onChange={this.handleChange}>
 
                     </input>
-                    <button>Submit</button>
+                    {this.props.user && <button>Submit</button>}
                     <h3>{this.props.msg}</h3>
                 </form>
             </div>

@@ -4,6 +4,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
+import cocktailService from '../../utils/cocktailService';
 import SearchCocktailPage from '../SearchCocktailPage/SearchCocktailPage';
 import CocktailDetailPage from '../CocktailDetailPage/CocktailDetailPage';
 import {getCocktail} from '../../services/cocktail-api';
@@ -33,13 +34,19 @@ class App extends Component {
     if(!searchResult.drinks) {
       return this.setState({msg: 'Invalid Cocktail'})
     }
-    console.log('SEARCH RESULT: ', searchResult);
     searchResult = searchResult.drinks[0];
     this.setState({cocktail: searchResult});
   }
 
   handleNewSearch = () => {
     this.setState({cocktail: null, msg: ''});
+  }
+
+  addDrink = async (cocktailData) => {
+    let user = await cocktailService.create(cocktailData);
+    this.setState(state => ({
+      user: user
+    }), () => this.props.history.push('/'));
   }
   
   render() {
@@ -55,12 +62,17 @@ class App extends Component {
         <Switch>
           <Route exact path="/" render={() => (
               !this.state.cocktail ?
-              <SearchCocktailPage msg={this.state.msg} handleCocktailSearch={this.handleCocktailSearch}/>
+              <SearchCocktailPage 
+                user={this.state.user} 
+                msg={this.state.msg} 
+                handleCocktailSearch={this.handleCocktailSearch}
+              />
               :
               <CocktailDetailPage 
                 user={this.state.user} 
                 cocktail={this.state.cocktail} 
                 handleNewSearch={this.handleNewSearch}
+                addDrink={this.addDrink}
               />
           )}/>
 
