@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
 import userService from '../../utils/userService';
 import SearchCocktailPage from '../SearchCocktailPage/SearchCocktailPage';
+import {getCocktail} from '../../services/cocktail-api';
 import './App.css';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      user: userService.getUser()
+      user: userService.getUser(),
+      cocktail: null
     }
   }
 
@@ -22,6 +24,13 @@ class App extends Component {
 
   handleSignupOrLogin = () => {
     this.setState({user: userService.getUser()});
+  }
+
+  handleCocktailSearch = async (cocktail) => {
+    let searchResult = await getCocktail(cocktail);
+    searchResult = searchResult.drinks[0];
+    console.log('SEARCH RESULT: ', searchResult);
+    this.setState({cocktail: searchResult});
   }
   
   render() {
@@ -34,18 +43,19 @@ class App extends Component {
         <div>
           <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         </div>
+        <Switch>
+          <Route exact path="/" render={() => (
+              <SearchCocktailPage handleCocktailSearch={this.handleCocktailSearch}/>
+          )}/>
 
-        <Route exact path="/" render={() => (
-          <SearchCocktailPage />
-        )}/>
+          <Route exact path="/login" render={({history}) => (
+            <LoginPage history={history} handleLogin={this.handleSignupOrLogin} />
+          )}/>
 
-        <Route exact path="/login" render={({history}) => (
-          <LoginPage history={history} handleLogin={this.handleSignupOrLogin} />
-        )}/>
-
-        <Route exact path="/signup" render={({history}) => 
-          <SignupPage history={history} handleSignup={this.handleSignupOrLogin} />
-        }/>
+          <Route exact path="/signup" render={({history}) => 
+            <SignupPage history={history} handleSignup={this.handleSignupOrLogin} />
+          }/>
+        </Switch>
 
       </div>
     );
