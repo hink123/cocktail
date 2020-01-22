@@ -45,9 +45,7 @@ class App extends Component {
 
   addDrink = async (cocktailData) => {
     let user = await cocktailService.create(cocktailData);
-    this.setState(state => ({
-      user: user
-    }), () => this.props.history.push('/'));
+    this.setState({user: user})
   }
 
   handleDrinkDelete = async (id) => {

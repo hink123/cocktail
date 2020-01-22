@@ -7,7 +7,7 @@ class FavoritesPage extends Component {
         console.log('EVENT', e.target.id);
         try {
           this.props.handleDrinkDelete(e.target.id);
-          this.props.history.push('/');
+          //this.props.history.push('/');
         } catch (err) {
           //UPDATE THE ALERT LATER
           alert('Invalid Credentials!');
