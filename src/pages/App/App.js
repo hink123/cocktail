@@ -61,7 +61,11 @@ class App extends Component {
         </header>
 
         <div>
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+          <NavBar 
+            user={this.state.user} 
+            handleLogout={this.handleLogout}
+            handleNewSearch={this.handleNewSearch}
+          />
         </div>
         <Switch>
           <Route exact path="/" render={() => (
