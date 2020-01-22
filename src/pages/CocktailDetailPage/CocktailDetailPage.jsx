@@ -28,7 +28,7 @@ class CocktailDetailPage extends Component {
             let ingrEnding = 'strIngredient' + i.toString();
             let measEnding = 'strMeasure' + i.toString();
             if(this.props.cocktail[ingrEnding]) {
-                let output = <li key={i} >{this.props.cocktail[ingrEnding]}: {this.props.cocktail[measEnding]}</li>
+                let output = `${this.props.cocktail[ingrEnding]}: ${this.props.cocktail[measEnding]}`
                 ingredients.push(output);
             }
         }
@@ -44,7 +44,11 @@ class CocktailDetailPage extends Component {
                 </h1>
                 <h3>Cup Type: {this.props.cocktail.strGlass}</h3>
                 <h3>
-                    Ingredients: {this.state.ingredients}
+                    Ingredients: {this.state.ingredients.map((ingredient, idx) =>
+                        <div key={idx} >
+                            {ingredient}
+                        </div>
+                    )}
                 </h3>
                 <h3>Instructions: {this.props.cocktail.strInstructions}</h3>
                 <button onClick={this.props.handleNewSearch} >New Search</button>
