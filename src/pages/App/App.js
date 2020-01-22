@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -89,11 +89,14 @@ class App extends Component {
           }/>
           
           <Route exact path="/favorites" render={({history}) => (
+            this.state.user ?
             <FavoritesPage 
               history={history}
               favDrinks={this.state.user.favDrinks}
               handleDrinkDelete={this.handleDrinkDelete}
              />
+             :
+             <Redirect to='/login' />
           )}/>
         </Switch>
 
