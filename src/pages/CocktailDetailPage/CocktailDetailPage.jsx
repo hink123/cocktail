@@ -12,15 +12,26 @@ class CocktailDetailPage extends Component {
 
     handleFavClick = (e) => {
         e.preventDefault();
-        this.setState(state => ({
-            cocktail: this.props.cocktail.strDrink,
-            glass: this.props.cocktail.strGlass,
-            instructions: this.props.cocktail.strInstructions,
-            image: this.props.cocktail.strDrinkThumb
-        }), function() {
+        // this.setState(state => ({
+        //     cocktail: this.props.cocktail.strDrink,
+        //     glass: this.props.cocktail.strGlass,
+        //     instructions: this.props.cocktail.strInstructions,
+        //     image: this.props.cocktail.strDrinkThumb
+        // }), function() {
             this.props.addDrink(this.state);
-        }
-        )}
+        // }
+        // )
+    }
+
+    checkValid = () => {
+        let result = false;
+        this.props.user.favDrinks.forEach((drink) => {
+            if(drink.cocktail === this.state.cocktail) {
+                result = true;
+            }
+        })
+        return result; 
+    }
 
     componentDidMount() {
         let ingredients = [];
@@ -32,7 +43,13 @@ class CocktailDetailPage extends Component {
                 ingredients.push(output);
             }
         }
-        this.setState({ingredients: ingredients});
+        this.setState({
+            ingredients: ingredients, 
+            cocktail: this.props.cocktail.strDrink,
+            glass: this.props.cocktail.strGlass,
+            instructions: this.props.cocktail.strInstructions,
+            image: this.props.cocktail.strDrinkThumb
+        });
     }
 
     render() {
@@ -52,7 +69,7 @@ class CocktailDetailPage extends Component {
                 </h3>
                 <h3>Instructions: {this.props.cocktail.strInstructions}</h3>
                 <button onClick={this.props.handleNewSearch} >New Search</button>
-                {this.props.user && <button onClick={this.handleFavClick} >Favorite</button>}
+                {this.props.user && <button disabled={this.checkValid()} onClick={this.handleFavClick} >Favorite</button>}
                 <img src={this.props.cocktail.strDrinkThumb} alt="Drink"></img>
             </div>
         )
