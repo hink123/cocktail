@@ -12,6 +12,17 @@ function create(cocktailData) {
     }).then(res => res.json());
 }
 
+function deleteOne(id) {
+    return fetch(`${BASE_URL}/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }
+    }).then(res => res.json());
+}
+
 export default {
-    create
+    create,
+    deleteOne
 }

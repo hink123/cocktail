@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const drinksCtrl = require('../../controllers/drinks');
 
-router.post('/', checkAuth, drinksCtrl.create)
+router.post('/', checkAuth, drinksCtrl.create);
+router.delete('/:id', checkAuth, drinksCtrl.deleteOne);
 
 module.exports = router;
 

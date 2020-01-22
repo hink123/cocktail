@@ -49,6 +49,11 @@ class App extends Component {
       user: user
     }), () => this.props.history.push('/'));
   }
+
+  handleDrinkDelete = async (id) => {
+    let user = await cocktailService.deleteOne(id);
+    this.setState({user: user, cocktail: null})
+  }
   
   render() {
     return (
@@ -85,8 +90,12 @@ class App extends Component {
             <SignupPage history={history} handleSignup={this.handleSignupOrLogin} />
           }/>
           
-          <Route exact path="/favorites" render={() => (
-            <FavoritesPage favDrinks={this.state.user.favDrinks} />
+          <Route exact path="/favorites" render={({history}) => (
+            <FavoritesPage 
+              history={history}
+              favDrinks={this.state.user.favDrinks}
+              handleDrinkDelete={this.handleDrinkDelete}
+             />
           )}/>
         </Switch>
 
