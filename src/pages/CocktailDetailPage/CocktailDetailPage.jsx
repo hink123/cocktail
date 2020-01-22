@@ -36,15 +36,6 @@ class CocktailDetailPage extends Component {
     }
 
     render() {
-        // let ingredients = [];
-        // for(let i = 1; i <= 15; i++) {
-        //     let ingrEnding = 'strIngredient' + i.toString();
-        //     let measEnding = 'strMeasure' + i.toString();
-        //     if(this.props.cocktail[ingrEnding]) {
-        //         let output = <li key={i} >{this.props.cocktail[ingrEnding]}: {this.props.cocktail[measEnding]}</li>
-        //         ingredients.push(output);
-        //     }
-        // }
 
         return (
             <div>

@@ -86,7 +86,7 @@ class App extends Component {
           }/>
           
           <Route exact path="/favorites" render={() => (
-            <FavoritesPage />
+            <FavoritesPage favDrinks={this.state.user.favDrinks} />
           )}/>
         </Switch>
 
