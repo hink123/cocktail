@@ -56,17 +56,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-        Welcome to Cocktail
-        </header>
-
-        <div>
+        
           <NavBar 
             user={this.state.user} 
             handleLogout={this.handleLogout}
             handleNewSearch={this.handleNewSearch}
           />
-        </div>
+
         <Switch>
           <Route exact path="/" render={() => (
               !this.state.cocktail ?
