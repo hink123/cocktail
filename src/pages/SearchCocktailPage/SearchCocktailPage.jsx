@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './SearchCocktailPage.css';
 
 class SearchCocktailPage extends Component {
     state = {
@@ -19,16 +20,16 @@ class SearchCocktailPage extends Component {
     //TODO fix the authentication to search
     render() {
         return (
-            <div>
+            <div className="Search-container">
                 {this.props.user ? 
                 <div>
-                    <h1>Search a Cocktail</h1>
-                    <form onSubmit={this.handleSubmit}>
-                        <input value={this.state.cocktail} name="cocktail" onChange={this.handleChange}>
+                    <h1 className="Search-title">Search a Cocktail</h1>
+                    <form className="Search-form" onSubmit={this.handleSubmit}>
+                        <input className="Search-input" value={this.state.cocktail} name="cocktail" onChange={this.handleChange}>
 
                         </input>
-                        <button>Submit</button>
-                        <h3>{this.props.msg}</h3>
+                        <button className="btn btn-default submit">Submit</button>
+                        <h3 className="invalid">{this.props.msg}</h3>
                     </form>
                 </div>
                 : 
