@@ -35,7 +35,7 @@ class FavoritesPage extends Component {
                                         )}
                                     </h3>
                                     <h3>Instructions: {drink.instructions}</h3>
-                                    <button onClick={this.handleSubmit} id={drink._id} >Delete</button>
+                                    <button className="btn btn-default delete" onClick={this.handleSubmit} id={drink._id} >Remove</button>
                                 </div>
                                 <img src={drink.image} alt="Drink" className="FavoritesPage-image"></img>
                             </div>
