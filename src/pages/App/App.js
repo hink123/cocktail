@@ -56,49 +56,51 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        
-          <NavBar 
-            user={this.state.user} 
-            handleLogout={this.handleLogout}
-            handleNewSearch={this.handleNewSearch}
-          />
 
-        <Switch>
-          <Route exact path="/" render={() => (
-              !this.state.cocktail ?
-              <SearchCocktailPage 
-                user={this.state.user} 
-                msg={this.state.msg} 
-                handleCocktailSearch={this.handleCocktailSearch}
+        <NavBar 
+          user={this.state.user} 
+          handleLogout={this.handleLogout}
+          handleNewSearch={this.handleNewSearch}
+        />
+        <div className="container">
+
+          <Switch>
+            <Route exact path="/" render={() => (
+                !this.state.cocktail ?
+                <SearchCocktailPage 
+                  user={this.state.user} 
+                  msg={this.state.msg} 
+                  handleCocktailSearch={this.handleCocktailSearch}
+                />
+                :
+                <CocktailDetailPage 
+                  user={this.state.user} 
+                  cocktail={this.state.cocktail} 
+                  handleNewSearch={this.handleNewSearch}
+                  addDrink={this.addDrink}
+                />
+            )}/>
+
+            <Route exact path="/login" render={({history}) => (
+              <LoginPage history={history} handleLogin={this.handleSignupOrLogin} />
+            )}/>
+
+            <Route exact path="/signup" render={({history}) => 
+              <SignupPage history={history} handleSignup={this.handleSignupOrLogin} />
+            }/>
+            
+            <Route exact path="/favorites" render={({history}) => (
+              this.state.user ?
+              <FavoritesPage 
+                history={history}
+                favDrinks={this.state.user.favDrinks}
+                handleDrinkDelete={this.handleDrinkDelete}
               />
               :
-              <CocktailDetailPage 
-                user={this.state.user} 
-                cocktail={this.state.cocktail} 
-                handleNewSearch={this.handleNewSearch}
-                addDrink={this.addDrink}
-              />
-          )}/>
-
-          <Route exact path="/login" render={({history}) => (
-            <LoginPage history={history} handleLogin={this.handleSignupOrLogin} />
-          )}/>
-
-          <Route exact path="/signup" render={({history}) => 
-            <SignupPage history={history} handleSignup={this.handleSignupOrLogin} />
-          }/>
-          
-          <Route exact path="/favorites" render={({history}) => (
-            this.state.user ?
-            <FavoritesPage 
-              history={history}
-              favDrinks={this.state.user.favDrinks}
-              handleDrinkDelete={this.handleDrinkDelete}
-             />
-             :
-             <Redirect to='/login' />
-          )}/>
-        </Switch>
+              <Redirect to='/login' />
+            )}/>
+          </Switch>
+        </div>
 
       </div>
     );

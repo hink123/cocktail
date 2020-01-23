@@ -1,9 +1,19 @@
 .App {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px; 
+  right: 0px;
   text-align: center;
+  background-image: url('./bar.jpg');
+  background-size: cover;
+  z-index: -1;
+  color: white;
+  
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   min-height: 6vw;
   display: flex;
   flex-direction: row;
