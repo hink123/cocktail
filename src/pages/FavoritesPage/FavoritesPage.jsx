@@ -17,24 +17,23 @@ class FavoritesPage extends Component {
     render() {
         return (
             <div>
-                <h1>Favorites Page</h1>
                 <div className="FavoritesPage-scroll">
                     {this.props.favDrinks.map((drink, idx) => 
                         <div key={idx} className="FavoritesPage-container">
-                            <h1>
+                            <h1 className="FavoritesPage-emphasize">
                                 {drink.cocktail}
                             </h1>
                             <div className="FavoritePage-content">
                                 <div className="FavoritePage-text">
-                                    <h3>Cup Type: {drink.glass}</h3>
+                                    <h3><span className="FavoritesPage-emphasize">Cup Type</span>: {drink.glass}</h3>
                                     <h3>
-                                        Ingredients: {drink.ingredients.map((ingredient, idx) =>
+                                    <span className="FavoritesPage-emphasize">Ingredients</span>: {drink.ingredients.map((ingredient, idx) =>
                                                 <div key={idx} >
-                                                    {ingredient}
+                                                    - {ingredient}
                                                 </div>
                                         )}
                                     </h3>
-                                    <h3>Instructions: {drink.instructions}</h3>
+                                    <h3><span className="FavoritesPage-emphasize">Instructions</span>: {drink.instructions}</h3>
                                     <button className="btn btn-default delete" onClick={this.handleSubmit} id={drink._id} >Remove</button>
                                 </div>
                                 <img src={drink.image} alt="Drink" className="FavoritesPage-image"></img>

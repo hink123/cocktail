@@ -1,0 +1,56 @@
+.DetailPage-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .5);
+    margin-bottom: 5vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    border-radius: 1vw;
+    margin-top: 4vw;
+}
+
+.DetailPage-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.DetailPage-text {
+    height: 30vw;
+    width: 45vw;
+    text-align: left;
+    position: relative;
+}
+
+.DetailPage-text h3 {
+    font-size: 1.8vw;
+}
+
+.DetailPage-image {
+    height: 25vw;
+    width: 25vw;
+}
+
+.DetailPage-btn {
+    display: flex;
+    position: absolute;
+    bottom: 1vw;
+}
+
+button.new {
+    margin-left: 29.5vw;
+}
+
+button.heart {
+    color: red;
+    background-color: pink;
+}
+
+button.heart:hover {
+    color: pink;
+    background-color: red;
+}
+
+.DetailPage-emphasize {
+    color: #B89446;
+    font-weight: bold;
+}

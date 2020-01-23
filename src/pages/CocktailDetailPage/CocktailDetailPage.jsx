@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './CocktailDetailPage.css';
 
 class CocktailDetailPage extends Component {
     
@@ -12,15 +13,7 @@ class CocktailDetailPage extends Component {
 
     handleFavClick = (e) => {
         e.preventDefault();
-        // this.setState(state => ({
-        //     cocktail: this.props.cocktail.strDrink,
-        //     glass: this.props.cocktail.strGlass,
-        //     instructions: this.props.cocktail.strInstructions,
-        //     image: this.props.cocktail.strDrinkThumb
-        // }), function() {
-            this.props.addDrink(this.state);
-        // }
-        // )
+        this.props.addDrink(this.state);
     }
 
     checkValid = () => {
@@ -55,22 +48,28 @@ class CocktailDetailPage extends Component {
     render() {
 
         return (
-            <div className="card">
-                <h1>
+            <div className="DetailPage-container">
+                <h1 className="DetailPage-emphasize" > 
                     {this.props.cocktail.strDrink}
                 </h1>
-                <h3>Cup Type: {this.props.cocktail.strGlass}</h3>
-                <h3>
-                    Ingredients: {this.state.ingredients.map((ingredient, idx) =>
-                        <div key={idx} >
-                            {ingredient}
+                <div className="DetailPage-content">
+                    <div className="DetailPage-text">
+                        <h3><span className="DetailPage-emphasize">Cup Type</span>: {this.props.cocktail.strGlass}</h3>
+                        <h3>
+                        <span className="DetailPage-emphasize">Ingredients</span>: {this.state.ingredients.map((ingredient, idx) =>
+                                <div key={idx} >
+                                    - {ingredient}
+                                </div>
+                            )}
+                        </h3>
+                        <h3><span className="DetailPage-emphasize">Instructions</span>: {this.props.cocktail.strInstructions}</h3>
+                        <div className="DetailPage-btn">
+                            {this.props.user && <button className="btn btn-default heart" disabled={this.checkValid()} onClick={this.handleFavClick} >&hearts;</button>}
+                            <button className="btn btn-default new" onClick={this.props.handleNewSearch}><span className="DetailPage-emphasize">New Search</span></button>
                         </div>
-                    )}
-                </h3>
-                <h3>Instructions: {this.props.cocktail.strInstructions}</h3>
-                <button onClick={this.props.handleNewSearch} >New Search</button>
-                {this.props.user && <button disabled={this.checkValid()} onClick={this.handleFavClick} >Favorite</button>}
-                <img src={this.props.cocktail.strDrinkThumb} alt="Drink"></img>
+                    </div>
+                    <img className="DetailPage-image" src={this.props.cocktail.strDrinkThumb} alt="Drink"></img>
+                </div>
             </div>
         )
     }

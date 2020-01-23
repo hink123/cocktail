@@ -2,6 +2,7 @@
     height: 70vw;
     overflow: scroll;
     padding-bottom: 30vw;
+    margin-top: 4vw;
 }
 
 .FavoritesPage-container {
@@ -9,8 +10,9 @@
     flex-direction: column;
     background-color: rgba(0, 0, 0, .5);
     margin-bottom: 5vw;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    border-radius: 1vw;
 }
 
 .FavoritesPage-image {
@@ -46,4 +48,9 @@ button.delete {
 
 button.delete:hover {
     background-color: rgba(255, 0, 0, 0.5);
+}
+
+.FavoritesPage-emphasize {
+    color: #B89446;
+    font-weight: bold;
 }
