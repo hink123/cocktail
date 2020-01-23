@@ -1,0 +1,35 @@
+.FavoritesPage-scroll {
+    height: 70vw;
+    overflow: scroll;
+    padding-bottom: 30vw;
+}
+
+.FavoritesPage-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, .5);
+    margin-bottom: 5vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.FavoritesPage-image {
+    height: 25vw;
+    width: 25vw;
+}
+
+.FavoritePage-content {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.FavoritePage-text {
+    height: 30vw;
+    width: 45vw;
+    text-align: left;
+}
+
+.FavoritePage-text h3 {
+    font-size: 1.8vw;
+}

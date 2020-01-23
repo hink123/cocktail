@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './FavoritesPage.css';
 
 class FavoritesPage extends Component {
 
@@ -15,27 +16,32 @@ class FavoritesPage extends Component {
 
     render() {
         return (
-
             <div>
                 <h1>Favorites Page</h1>
-                {this.props.favDrinks.map((drink, idx) => 
-                    <div key={idx} >
-                        <h1>
-                            {drink.cocktail}
-                        </h1>
-                        <h3>Cup Type: {drink.glass}</h3>
-                        <h3>
-                            Ingredients: {drink.ingredients.map((ingredient, idx) =>
-                                    <div key={idx} >
-                                        {ingredient}
-                                    </div>
-                            )}
-                        </h3>
-                        <h3>Instructions: {drink.instructions}</h3>
-                        <img src={drink.image} alt="Drink"></img>
-                        <button onClick={this.handleSubmit} id={drink._id} >Delete</button>
-                    </div>
-                )}
+                <div className="FavoritesPage-scroll">
+                    {this.props.favDrinks.map((drink, idx) => 
+                        <div key={idx} className="FavoritesPage-container">
+                            <h1>
+                                {drink.cocktail}
+                            </h1>
+                            <div className="FavoritePage-content">
+                                <div className="FavoritePage-text">
+                                    <h3>Cup Type: {drink.glass}</h3>
+                                    <h3>
+                                        Ingredients: {drink.ingredients.map((ingredient, idx) =>
+                                                <div key={idx} >
+                                                    {ingredient}
+                                                </div>
+                                        )}
+                                    </h3>
+                                    <h3>Instructions: {drink.instructions}</h3>
+                                    <button onClick={this.handleSubmit} id={drink._id} >Delete</button>
+                                </div>
+                                <img src={drink.image} alt="Drink" className="FavoritesPage-image"></img>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         )
     }
