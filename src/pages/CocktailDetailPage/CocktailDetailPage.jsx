@@ -55,7 +55,7 @@ class CocktailDetailPage extends Component {
     render() {
 
         return (
-            <div>
+            <div className="card">
                 <h1>
                     {this.props.cocktail.strDrink}
                 </h1>
