@@ -1,0 +1,36 @@
+.Signup-container {
+    margin: 10vw auto;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 1vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+}
+
+.Signup-title {
+    margin-bottom: 2vw;
+    margin-top: 2vw;
+    font-weight: bold;
+    color: #B89446;
+    font-size: 2vw;
+}
+
+.Signup-cancel {
+    color: red;
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+
+.Signup-cancel:hover {
+    color: red
+}
+
+button.signup {
+    font-size: 1.5vw;
+    margin-bottom: 1vw;
+    margin-right: 1.5vw;
+    color: #B89446;
+    font-weight: bold;
+}
