@@ -1,0 +1,19 @@
+.NavBar-important {
+    color: #B89446;
+    font-weight: bold;
+}
+
+.NavBar-normal {
+    color: white;
+}
+
+.NavBar-normal:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.NavBar-important:hover {
+    color: #B89446;
+    text-decoration: none;
+}
+

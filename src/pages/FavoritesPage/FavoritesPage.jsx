@@ -5,7 +5,6 @@ class FavoritesPage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log('EVENT', e.target.id);
         try {
           this.props.handleDrinkDelete(e.target.id);
         } catch (err) {
