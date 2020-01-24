@@ -54,3 +54,18 @@ button.delete:hover {
     color: #B89446;
     font-weight: bold;
 }
+
+.Favorites-empty {
+    margin: 10vw auto;
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+    height: 4vw;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 1vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    font-size: 2vw;
+    align-items: center;
+    justify-content: center;
+}

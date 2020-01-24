@@ -12,8 +12,17 @@
     text-decoration: none;
 }
 
+.NavBar-normal:focus {
+    color: white;
+    text-decoration: none;
+}
+
 .NavBar-important:hover {
     color: #B89446;
     text-decoration: none;
 }
 
+.NavBar-important:focus {
+    color: #B89446;
+    text-decoration: none;
+}

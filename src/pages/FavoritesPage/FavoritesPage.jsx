@@ -16,6 +16,8 @@ class FavoritesPage extends Component {
     render() {
         return (
             <div>
+                {this.props.favDrinks.length ?
+
                 <div className="FavoritesPage-scroll">
                     {this.props.favDrinks.map((drink, idx) => 
                         <div key={idx} className="FavoritesPage-container">
@@ -40,6 +42,9 @@ class FavoritesPage extends Component {
                         </div>
                     )}
                 </div>
+                : 
+                <div className="Favorites-empty">No Drinks On Favorite List</div>
+                } 
             </div>
         )
     }
