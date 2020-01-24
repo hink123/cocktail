@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './SearchCocktailPage.css';
 
 class SearchCocktailPage extends Component {
@@ -33,7 +34,11 @@ class SearchCocktailPage extends Component {
                     </form>
                 </div>
                 : 
-                <h1>Please Login to Search a Cocktail</h1>
+                <div>
+                    <h1 className="Search-welcome">Welcome to Cocktail</h1>
+                    <h3>Please Login to Find a Drink</h3>
+                    <Link className="btn btn-default login" to='/login'>Login</Link>
+                </div>
                 }
             </div>
         );

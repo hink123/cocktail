@@ -23,6 +23,7 @@
 .Search-title {
     margin-bottom: 3vw;
     font-weight: bold;
+    color: #B89446;
 }
 
 .Search-form {
@@ -48,4 +49,21 @@ button.submit:hover {
 h3.invalid {
     color: red;
     font-weight: bold;
+}
+
+.Search-welcome {
+    color: #B89446;
+    font-weight: bold;
+}
+
+.login {
+    color: #B89446;
+    margin-top: 1.5vw;
+    margin-bottom: 1.5vw;
+    font-weight: bold;
+}
+
+.login:hover {
+    background-color: #B89446;
+    color: white;
 }
