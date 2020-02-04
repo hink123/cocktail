@@ -64,8 +64,12 @@ class CocktailDetailPage extends Component {
                         </h3>
                         <h3><span className="DetailPage-emphasize">Instructions</span>: {this.props.cocktail.strInstructions}</h3>
                         <div className="DetailPage-btn">
-                            {this.props.user && <button className="btn btn-default heart" disabled={this.checkValid()} onClick={this.handleFavClick} >&hearts;</button>}
-                            <button className="btn btn-default new" onClick={this.props.handleNewSearch}><span className="DetailPage-emphasize">New Search</span></button>
+                            {this.props.user && <button className="btn btn-default heart" disabled={this.checkValid()} onClick={this.handleFavClick}>
+                                &hearts;
+                            </button>}
+                            <button className="btn btn-default new" onClick={this.props.handleNewSearch}>
+                                <span className="DetailPage-emphasize">New Search</span>
+                            </button>
                         </div>
                     </div>
                     <img className="DetailPage-image" src={this.props.cocktail.strDrinkThumb} alt="Drink"></img>

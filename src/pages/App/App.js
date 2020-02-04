@@ -8,7 +8,7 @@ import cocktailService from '../../utils/cocktailService';
 import SearchCocktailPage from '../SearchCocktailPage/SearchCocktailPage';
 import CocktailDetailPage from '../CocktailDetailPage/CocktailDetailPage';
 import FavoritesPage from '../FavoritesPage/FavoritesPage';
-import {getCocktail} from '../../services/cocktail-api';
+import {getCocktail, getRandom} from '../../services/cocktail-api';
 import './App.css';
 
 class App extends Component {
@@ -32,6 +32,15 @@ class App extends Component {
 
   handleCocktailSearch = async (cocktail) => {
     let searchResult = await getCocktail(cocktail);
+    if(!searchResult.drinks) {
+      return this.setState({msg: 'Invalid Cocktail'})
+    }
+    searchResult = searchResult.drinks[0];
+    this.setState({cocktail: searchResult});
+  }
+
+  handleRandomSearch = async () => {
+    let searchResult = await getRandom();
     if(!searchResult.drinks) {
       return this.setState({msg: 'Invalid Cocktail'})
     }
@@ -71,6 +80,7 @@ class App extends Component {
                   user={this.state.user} 
                   msg={this.state.msg} 
                   handleCocktailSearch={this.handleCocktailSearch}
+                  handleRandomSearch={this.handleRandomSearch}
                 />
                 :
                 <CocktailDetailPage 

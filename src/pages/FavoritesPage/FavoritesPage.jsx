@@ -8,7 +8,6 @@ class FavoritesPage extends Component {
         try {
           this.props.handleDrinkDelete(e.target.id);
         } catch (err) {
-          //UPDATE THE ALERT LATER
           alert('Invalid Credentials!');
         }
       }
