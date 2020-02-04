@@ -27,7 +27,7 @@
 }
 
 .Search-form {
-    margin-bottom: 3vw;
+    margin-bottom: 1.5vw;
 }
 
 button.submit {
@@ -45,6 +45,24 @@ button.submit:hover {
     background-color: #B89446;
     color: white;
 }
+
+button.random {
+    font-size: 1.7vw;
+    margin-bottom: 1vw;
+    color: #B89446;
+    font-weight: bold;
+}
+
+button.random:focus {
+    outline: none;
+}
+
+button.random:hover {
+    background-color: #B89446;
+    color: white;
+}
+
+
 
 h3.invalid {
     color: red;

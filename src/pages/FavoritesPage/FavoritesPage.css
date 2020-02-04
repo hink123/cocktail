@@ -31,6 +31,7 @@
     width: 45vw;
     text-align: left;
     position: relative;
+    overflow: scroll;
 }
 
 .FavoritePage-text h3 {
@@ -42,8 +43,8 @@ button.delete {
     border: none;
     color: white;
     font-style: bold;
-    position: absolute;
-    bottom: 1vw;
+    margin-top: 2vw;
+    margin-bottom: 1vw;
 }
 
 button.delete:hover {

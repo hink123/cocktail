@@ -32,7 +32,7 @@ class SearchCocktailPage extends Component {
                         <button className="btn btn-default submit">Submit</button>
                         <h3 className="invalid">{this.props.msg}</h3>
                     </form>
-                    <button onClick={this.props.handleRandomSearch} className="btn btn-default submit">Suprise Me!</button>
+                    <button onClick={this.props.handleRandomSearch} className="btn btn-default random">Surprise Me!</button>
                 </div>
                 : 
                 <div>
